@@ -5,7 +5,7 @@ class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-change-in-production-abc123x")
 
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DATABASE_URL", "postgresql://postgres:Yash1234@localhost:5432/secure_api_db"
+        "DATABASE_URL", "postgresql://postgres:YOUR_PASSWORD@localhost:5432/secure_api_db"
     )
     
 
