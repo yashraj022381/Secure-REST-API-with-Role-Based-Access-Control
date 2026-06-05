@@ -21,7 +21,7 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         "DEV_DATABASE_URL",
-        "postgresql://postgres:Yash1234@localhost:5432/secure_api_dev"
+        "postgresql://postgres:YOUR_PASSWORD@localhost:5432/secure_api_dev"
     )
     SQLALCHEMY_ECHO = True
     BCRYPT_LOG_ROUNDS = 4
