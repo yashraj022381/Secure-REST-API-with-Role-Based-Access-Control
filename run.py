@@ -2,27 +2,28 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from app import create_app, db
-from flask_migrate import upgrade, init
+from flask_migrate import upgrade, init, migrate
 import os
 
 app = create_app()
 
-def deploy():
-    """Run database migrations and seed automatically on startup."""
-    with app.app_context():
-        # Run all pending migrations
-        try:
-            upgrade()
-            print("✅ Database migrations applied!")
-        except Exception as e:
-            print(f"Migration note: {e}")
 
-        # Seed initial data if needed
+def deploy():
+    """Run database setup automatically on startup."""
+    with app.app_context():
+
+        # Step 1 — Create all tables directly (simpler than migrations)
+        try:
+            db.create_all()
+            print("✅ Database tables created!")
+        except Exception as e:
+            print(f"Table creation note: {e}")
+
+        # Step 2 — Seed data if empty
         try:
             from app.models.role import Role, Permission
             from app.models.user import User
 
-            # Only seed if no roles exist yet
             if Role.query.count() == 0:
                 print("🌱 Seeding database...")
 
@@ -38,14 +39,20 @@ def deploy():
 
                 permissions = {}
                 for name, resource, action, desc in permissions_data:
-                    p = Permission(
-                        name=name,
-                        resource=resource,
-                        action=action,
-                        description=desc
-                    )
-                    db.session.add(p)
-                    permissions[name] = p
+                    existing = Permission.query.filter_by(
+                        name=name
+                    ).first()
+                    if not existing:
+                        p = Permission(
+                            name=name,
+                            resource=resource,
+                            action=action,
+                            description=desc
+                        )
+                        db.session.add(p)
+                        permissions[name] = p
+                    else:
+                        permissions[name] = existing
 
                 db.session.flush()
 
@@ -73,25 +80,29 @@ def deploy():
                 }
 
                 for role_name, config in roles_config.items():
-                    role = Role(
-                        name=role_name,
-                        description=config["description"],
-                        is_default=config["is_default"]
-                    )
-                    role.permissions = [
-                        permissions[p]
-                        for p in config["permissions"]
-                    ]
-                    db.session.add(role)
+                    role = Role.query.filter_by(
+                        name=role_name
+                    ).first()
+                    if not role:
+                        role = Role(
+                            name=role_name,
+                            description=config["description"],
+                            is_default=config["is_default"]
+                        )
+                        role.permissions = [
+                            permissions[p]
+                            for p in config["permissions"]
+                            if p in permissions
+                        ]
+                        db.session.add(role)
 
                 # Create admin user
-                admin_role = Role.query.filter_by(
-                    name="admin"
-                ).first()
-
                 if not User.query.filter_by(
                     email="admin@example.com"
                 ).first():
+                    admin_role = Role.query.filter_by(
+                        name="admin"
+                    ).first()
                     admin = User(
                         email="admin@example.com",
                         username="admin"
@@ -103,23 +114,21 @@ def deploy():
                     db.session.add(admin)
 
                 db.session.commit()
-                print("✅ Database seeded successfully!")
+                print("✅ Database seeded!")
                 print("   Admin: admin@example.com / Admin1234!")
             else:
-                print("✅ Database already seeded — skipping.")
+                print("✅ Database already seeded.")
 
         except Exception as e:
             print(f"Seed error: {e}")
             db.session.rollback()
 
 
-# Run on startup
+# Run setup on startup
 deploy()
 
 
 if __name__ == "__main__":
-   # with app.app_context():
-    #    db.create_all()
     app.run(
         host="0.0.0.0",
         port=5000,
