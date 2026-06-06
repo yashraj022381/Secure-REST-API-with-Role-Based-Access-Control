@@ -4,7 +4,7 @@ services:
     name: secure-api
     env: python
     buildCommand: pip install -r requirements.txt && flask db init || true && flask db migrate -m "auto" || true
-    startCommand: gunicorn run:app
+    startCommand: gunicorn run:app --worker-class gevent --workers 2
     envVars:
       - key: FLASK_APP
         value: run.py
