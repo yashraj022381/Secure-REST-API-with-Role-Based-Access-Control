@@ -1,10 +1,10 @@
-
 services:
   - type: web
     name: secure-api
     env: python
-    buildCommand: pip install -r requirements.txt && flask db init || true && flask db migrate -m "auto" || true
-    startCommand: gunicorn run:app --worker-class gevent --workers 2
+    pythonVersion: "3.11.9"
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app --workers 2 --timeout 120
     envVars:
       - key: FLASK_APP
         value: run.py
@@ -14,10 +14,10 @@ services:
         fromDatabase:
           name: secure-api-db
           property: connectionString
-          value: postgre:///secure-api-db
-      - key: FLASK_ENV
-        value: production
+      - key: PYTHON_VERSION
+        value: 3.11.9
 
 databases:
   - name: secure-api-db
+    databaseName: secure_api_db
     plan: free
