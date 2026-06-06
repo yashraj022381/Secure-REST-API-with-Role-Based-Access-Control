@@ -1,1 +1,20 @@
 
+services:
+  - type: web
+    name: secure-api
+    env: python
+    buildCommand: pip install -r requirements.txt && flask db init || true && flask db migrate -m "auto" || true
+    startCommand: gunicorn run:app
+    envVars:
+      - key: FLASK_APP
+        value: run.py
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: secure-api-db
+          property: connectionString
+
+databases:
+  - name: secure-api-db
+    plan: free
