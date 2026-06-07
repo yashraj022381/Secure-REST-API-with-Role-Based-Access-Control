@@ -9,29 +9,55 @@ Authentication &amp; authorization system for enterprise APIs.
 
 A production-ready REST API built with Flask featuring JWT authentication, bcrypt password hashing, and Role-Based Access Control (RBAC).
 
-1. ## 🌐 Live API
+1. ## 📸 Screenshots
+
+2. ## 🌐 Live API
    
 **Base URL:** `https://secure-rest-api-with-role-based-access.onrender.com`
 
   > ⚠️ Free tier — first request may take 30-60 seconds to wake up.
 
-2. ## 🚀 Quick Test
+3. ## 🚀 Quick Test
    
-```bash
- curl https://secure-rest-api-with-role-based-access.onrender.com/api/health
-```
+   ```bash
+  curl https://secure-rest-api-with-role-based-access.onrender.com/api/health
+    ```
+4. ## 📬 Test with Postman
 
-3. ## 🛠️ Tech Stack
+   [![Run in Postman](https://run.pstmn.io/button.svg)](YOUR_POSTMAN_LINK)
+
+    Download the Postman Collection:
+    Secure API - Postman Collection
+
+   ### Quick Login Test
+   ```bash
+   curl -X POST \
+     https://secure-rest-api-with-role-based-access.onrender.com/api/auth/login \
+      -H "Content-Type: application/json" \
+      -d '{"email":"admin@example.com","password":"Admin1234!"}'
+   ```
+5. 🔐 Features:
+    
+   ✅ JWT Authentication (access + refresh tokens)
+   ✅ bcrypt password hashing
+   ✅ Role-Based Access Control (viewer/editor/admin)
+   ✅ Token blacklisting on logout
+   ✅ Account lockout after failed attempts
+   ✅ PostgreSQL database
+   ✅ Deployed on Render
+   
+6. ## 🛠️ Tech Stack
    
   - **Python** — Flask framework
   - **PostgreSQL** — Database
   - **JWT** — Authentication tokens
   - **bcrypt** — Password hashing
+  - **ORM** - SQLAlchemy
   - **RBAC** — Role-Based Access Control
   - **Render** — Cloud deployment
 
 
-4. ## 📋 API Endpoints
+7. ## 📋 API Endpoints
 
    (i) ### 🔓 Public (No token needed)
     | Method | Endpoint | Description |
@@ -56,19 +82,7 @@ A production-ready REST API built with Flask featuring JWT authentication, bcryp
      | POST | `/api/admin/users/<id>/roles` | Assign role | admin |
 
 
-5. ## 🧪 Test with Postman
-
-  [![Run in Postman](https://run.pstmn.io/button.svg)](YOUR_POSTMAN_LINK)
-
-   ### Quick Login Test
-   ```bash
-   curl -X POST \
-     https://secure-rest-api-with-role-based-access.onrender.com/api/auth/login \
-      -H "Content-Type: application/json" \
-      -d '{"email":"admin@example.com","password":"Admin1234!"}'
-   ```
-
-6. ## 🔑 Roles & Permissions
+8. ## 🔑 Roles & Permissions
 
    | Role | Permissions |
    |------|-------------|
@@ -76,7 +90,8 @@ A production-ready REST API built with Flask featuring JWT authentication, bcryp
    | editor | read:products, write:products, read:users |
    | admin | All permissions |
 
-7. ## ⚙️ Run Locally
+
+9. ## ⚙️ Run Locally
 
   ```bash
   # Clone the repo
@@ -99,7 +114,7 @@ A production-ready REST API built with Flask featuring JWT authentication, bcryp
       python run.py
   ```
 
-8. ## 🏗️ Project Structure
+10. ## 🏗️ Project Structure
 
    secure_api/
    ├── app/
@@ -127,12 +142,7 @@ A production-ready REST API built with Flask featuring JWT authentication, bcryp
    ├── run.py                # Entry point
    └── requirements.txt
 
-9. 🔐 Features:
-    
-   ✅ JWT Authentication (access + refresh tokens)
-   ✅ bcrypt password hashing
-   ✅ Role-Based Access Control (viewer/editor/admin)
-   ✅ Token blacklisting on logout
-   ✅ Account lockout after failed attempts
-   ✅ PostgreSQL database
-   ✅ Deployed on Render
+11. 📄 License
+    This project is open-source and available under the MIT License.
+
+    Made with ❤️ for learning secure API development
