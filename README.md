@@ -25,7 +25,7 @@ A production-ready REST API built with Flask featuring JWT authentication, bcryp
     
 4. ## 📬 Test with Postman
 
-   [![Run in Postman](https://y-g-jagdale98-4591827.postman.co/workspace/Yashraj's-Workspace~bde62ced-531c-4a70-8112-19a6b136917d/request/55454576-0bc7f03b-276b-45eb-8301-1459a6d86f52?action=share&source=copy-link&creator=55454576)
+   [![Run in Postman](https://github.com/yashraj022381/Secure-REST-API-with-Role-Based-Access-Control/blob/main/Secure_API_Postman_Collection.json)
 
     Download the Postman Collection:
     Secure API - Postman Collection
