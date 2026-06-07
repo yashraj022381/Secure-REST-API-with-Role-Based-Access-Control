@@ -1,19 +1,28 @@
 # 🔐 Secure-REST-API-with-Role-Based-Access-Control
 Authentication &amp; authorization system for enterprise APIs. 
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
+
 A production-ready REST API built with Flask featuring JWT authentication, bcrypt password hashing, and Role-Based Access Control (RBAC).
 
 1. ## 🌐 Live API
+   
 **Base URL:** `https://secure-rest-api-with-role-based-access.onrender.com`
 
   > ⚠️ Free tier — first request may take 30-60 seconds to wake up.
 
 2. ## 🚀 Quick Test
+   
 ```bash
-curl https://secure-rest-api-with-role-based-access.onrender.com/api/health
+ curl https://secure-rest-api-with-role-based-access.onrender.com/api/health
 ```
 
 3. ## 🛠️ Tech Stack
+   
   - **Python** — Flask framework
   - **PostgreSQL** — Database
   - **JWT** — Authentication tokens
@@ -21,29 +30,31 @@ curl https://secure-rest-api-with-role-based-access.onrender.com/api/health
   - **RBAC** — Role-Based Access Control
   - **Render** — Cloud deployment
 
+
 4. ## 📋 API Endpoints
 
-  (i) ### 🔓 Public (No token needed)
-   | Method | Endpoint | Description |
-   |--------|----------|-------------|
-   | GET | `/api/health` | Health check |
-   | POST | `/api/auth/register` | Register new user |
-   | POST | `/api/auth/login` | Login and get tokens |
-   | POST | `/api/auth/refresh` | Refresh access token |
+   (i) ### 🔓 Public (No token needed)
+    | Method | Endpoint | Description |
+    |--------|----------|-------------|
+    | GET | `/api/health` | Health check |
+    | POST | `/api/auth/register` | Register new user |
+    | POST | `/api/auth/login` | Login and get tokens |
+    | POST | `/api/auth/refresh` | Refresh access token |
 
- (ii) ### 🔒 Protected (Token required)
-   | Method | Endpoint | Description | Role |
-   |--------|----------|-------------|------|
-   | GET | `/api/auth/me` | Get my profile | Any |
-   | POST | `/api/auth/logout` | Logout | Any |
-   | PUT | `/api/users/profile` | Update profile | Any |
-   | POST | `/api/users/change-password` | Change password | Any |
-   | GET | `/api/products/` | List products | viewer+ |
-   | POST | `/api/products/` | Create product | editor+ |
-   | DELETE | `/api/products/<id>` | Delete product | admin |
-   | GET | `/api/admin/users` | List all users | admin |
-   | GET | `/api/admin/roles` | List all roles | admin |
-   | POST | `/api/admin/users/<id>/roles` | Assign role | admin |
+   (ii) ### 🔒 Protected (Token required)
+     | Method | Endpoint | Description | Role |
+     |--------|----------|-------------|------|
+     | GET | `/api/auth/me` | Get my profile | Any |
+     | POST | `/api/auth/logout` | Logout | Any |
+     | PUT | `/api/users/profile` | Update profile | Any |
+     | POST | `/api/users/change-password` | Change password | Any |
+     | GET | `/api/products/` | List products | viewer+ |
+     | POST | `/api/products/` | Create product | editor+ |
+     | DELETE | `/api/products/<id>` | Delete product | admin |
+     | GET | `/api/admin/users` | List all users | admin |
+     | GET | `/api/admin/roles` | List all roles | admin |
+     | POST | `/api/admin/users/<id>/roles` | Assign role | admin |
+
 
 5. ## 🧪 Test with Postman
 
@@ -72,21 +83,21 @@ curl https://secure-rest-api-with-role-based-access.onrender.com/api/health
   git clone https://github.com/YOURUSERNAME/secure-api.git
   cd secure-api
 
-# Create virtual environment
-python -m venv venv
-venv\Scripts\activate  # Windows
-source venv/bin/activate  # Mac/Linux
+  i) # Create virtual environment
+     python -m venv venv
+     venv\Scripts\activate  # Windows
+     source venv/bin/activate  # Mac/Linux
 
-# Install dependencies
-pip install -r requirements.txt
+  ii) # Install dependencies
+      pip install -r requirements.txt
 
-# Set environment variables
-copy .env.example .env
-# Edit .env with your database URL and secret key
+ iii) # Set environment variables
+      copy .env.example .env
+      # Edit .env with your database URL and secret key
 
-# Run
-python run.py
-```
+  vi) # Run
+      python run.py
+  ```
 
 8. ## 🏗️ Project Structure
 
@@ -108,7 +119,7 @@ python run.py
    │   ├── init.py
    │   ├── config.py
    ├── tests/
-        ├── test_auth.py
+       ├── test_auth.py
    ├── config.py             # App configuration
    ├── .env.example          
    ├── seed.py
@@ -116,3 +127,12 @@ python run.py
    ├── run.py                # Entry point
    └── requirements.txt
 
+9. 🔐 Features:
+    
+   ✅ JWT Authentication (access + refresh tokens)
+   ✅ bcrypt password hashing
+   ✅ Role-Based Access Control (viewer/editor/admin)
+   ✅ Token blacklisting on logout
+   ✅ Account lockout after failed attempts
+   ✅ PostgreSQL database
+   ✅ Deployed on Render
