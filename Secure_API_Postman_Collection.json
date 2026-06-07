@@ -1,0 +1,352 @@
+{
+  "info": {
+    "_postman_id": "7ffe6a7a-2587-415a-97b6-0a5eee6b66ad",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55454576",
+    "_collection_link": "https://go.postman.co/collection/55454576-7ffe6a7a-2587-415a-97b6-0a5eee6b66ad?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Secure REST API",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Register",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"admin@example.com\",\r\n    \"username\":\"adminuser\",\r\n    \"password\":\"Admin1234!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/auth/register",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "",
+          "header": [],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": ""
+        },
+        {
+          "name": "Login",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"admin@example.com\",\r\n    \"password\":\"Admin1234!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "Get Me",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/auth/me",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "",
+          "header": [],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": ""
+        },
+        {
+          "name": "List Products",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/products/",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "API Health",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/health",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "health"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "Refresh Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/auth/refresh",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "refresh"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "Create Product",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/products/",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "products",
+                ""
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "Delete Product",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/products/2",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "products",
+                "2"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "View All Roles",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/admin/roles",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "roles"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "Logout",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/auth/me",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "Update Username",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"username\": \"viewer_updated\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://secure-rest-api-with-role-based-access.onrender.com/api/users/profile",
+              "protocol": "https",
+              "host": [
+                "secure-rest-api-with-role-based-access",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    }
+  ]
+}
