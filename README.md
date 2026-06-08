@@ -12,12 +12,12 @@ A production-ready REST API built with Flask featuring JWT authentication, bcryp
 
 1. ## 📸 Screenshots
    
-   ![Login API](screenshots/login-success.png)
-   ![Protected Route](screenshots/products-lists.png)
-   ![Local Server](screenshots/server_running.png)
-   ![Register + Get Me Response](screenshots/register.png)
-   ![Render Delopment Live](screenshots/Render_Deployment_Live1.png,
-                                        Render_Deployment_Live2.png)
+   i) Login API ![Login API](screenshots/login-success.png)
+   ii) Protected Route ![Protected Route](screenshots/products-lists.png)
+   iii) Local Server ![Local Server](screenshots/server_running.png)
+   iv) Register + Get Me ![Register + Get Me Response](screenshots/register.png)
+   v) Render Delopment Live ![Render Delopment Live](screenshots/Render_Deployment_Live1.png,
+                                                                 Render_Deployment_Live2.png)
 
 
 3. ## 🌐 Live API
