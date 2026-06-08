@@ -17,7 +17,7 @@ A production-ready REST API built with Flask featuring JWT authentication, bcryp
    iii) Local Server ![Local Server](screenshots/server_running.png)
    iv) Register + Get Me ![Register + Get Me Response](screenshots/register.png)
    v) Render Delopment Live-1 ![Render Delopment Live1](screenshots/Render_Deployment_Live1.png)
-      Render Delopment Live-2 ![Render Delopment Live2](screenshots/Render_Deployment_Live2.png)
+   vi) Render Delopment Live-2 ![Render Delopment Live2](screenshots/Render_Deployment_Live2.png)
 
 
 3. ## 🌐 Live API
