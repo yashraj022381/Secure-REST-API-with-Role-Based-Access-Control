@@ -10,8 +10,14 @@ Authentication &amp; authorization system for enterprise APIs.
 A production-ready REST API built with Flask featuring JWT authentication, bcrypt password hashing, and Role-Based Access Control (RBAC).
 
 1. ## 📸 Screenshots
+   
+   ![Login API](screenshot1.png)
+   ![Protected Route](screenshot2.png)
+   ![Local Server](screenshot3.png)
+   ![Register + Get Me Response](screenshots4.png)
+   ![Render Delopment Live](screenshots5.png)
 
-2. ## 🌐 Live API
+3. ## 🌐 Live API
    
 **Base URL:** `https://secure-rest-api-with-role-based-access.onrender.com`
 
